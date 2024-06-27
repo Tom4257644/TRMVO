@@ -1,0 +1,1525 @@
+#: kivy 2.3.0
+
+<Disclaimer>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Tom's Rental Model Version One"
+            font_size: self.height * 0.4  
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.2)
+
+        Label:
+            text: "Disclaimer\n\nThe recommendations and calculations produced by the computer model named TRMVO are for informational purposes only and do not constitute financial advice. Users of TRMVO should seek advice from a qualified financial advisor before making any financial decisions. Thomas Maclean makes no warranties regarding the accuracy, reliability, or suitability of the information provided. They are not liable for any direct, indirect, or consequential damages arising from the use of TRMVO.\n\nBy pressing continue and using TRMVO, you acknowledge and agree to these terms."
+            font_size: self.height * 0.05  
+            color: 0, 0, 0, 1   
+            size_hint: (1, 0.6)  
+            text_size: self.width, None 
+            halign: 'left'  
+            valign: 'middle'  
+
+        Button:
+            text: "Continue"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5  
+            size_hint: (0.5, 0.1)  
+            pos_hint: {'center_x': 0.5}  
+            border_radius: [15]  
+            on_press: app.switchToLoggedOutScreen()
+
+<LoggedOutScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10  
+        padding: [50, 30, 50, 30]  
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "TRMVO Demo"
+            font_size: self.height * 0.5  
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.2)
+
+        Image:
+            source: 'lock.png'
+            size_hint: (None, None)
+            size: 200, 200  
+            pos_hint: {'center_x': 0.5}  
+
+        Label:
+            text: "Main Menu"
+            font_size: self.height * 0.5  
+            color: 0, 0, 0, 1   
+            size_hint: (1, 0.1)
+
+        Button:
+            text: "How to use TRMVO"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5 
+            size_hint: (0.5, 0.1)  
+            pos_hint: {'center_x': 0.5}  
+            border_radius: [15]  
+            on_press: root.show_login_message()
+
+        Button:
+            text: "New Rental Model"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5  
+            size_hint: (0.5, 0.1)  
+            pos_hint: {'center_x': 0.5}  
+            border_radius: [15]  
+            on_press: root.show_login_message()
+
+
+        Button:
+            text: "Assumptions"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: root.show_login_message()
+
+        Button:
+            text: "Insights"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: root.show_login_message()
+
+        Button:
+            text: "Mortgage Calculator"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5  
+            size_hint: (0.5, 0.1)  
+            pos_hint: {'center_x': 0.5}  
+            border_radius: [15]  
+            on_press: root.show_login_message()
+
+
+        Button:
+            text: "Log In"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToLogInScreen()
+
+        Button:
+            text: "Exit Program"
+            background_normal: ''
+            background_color: 0, 0, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.stop()
+
+        Label:
+            id: login_message
+            text: ""
+            color: 1, 0, 0, 1  
+            size_hint: (1, 0.1)
+
+<LogInScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing:50
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: "TRMVO"
+            font_size: self.height * 0.5 
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.2)
+
+        Label:
+            text: "Please enter your account details"
+            font_size: self.height * 0.3  
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint_y: None  
+            height: root.height * 0.15  
+
+        BoxLayout:
+            size_hint_y: None  
+            height: root.height * 0.05    
+            Widget:    
+                size_hint_x: 0.5
+            TextInput:
+                id: username
+                hint_text: "Username"
+                multiline: False
+                size_hint_x: 0.5
+                pos_hint: {'center_x': 0.5}
+
+            Widget:    
+                size_hint_x: 0.5
+
+        BoxLayout:
+            size_hint_y: None    
+            height: root.height * 0.05    
+            Widget:    
+                size_hint_x: 0.5
+            TextInput:
+                id: password
+                hint_text: "Password"
+                password: True
+                multiline: False
+                size_hint_x: 0.5
+                pos_hint: {'center_x': 0.5}
+
+            Widget:    
+                size_hint_x: 0.5
+
+        BoxLayout:
+            size_hint_y: None    
+            height: root.height * 0.08    
+            Widget:    
+                size_hint_x: 0.5
+            Button:
+                text: "Log In"
+                background_normal: ''
+                background_color: 0, 0.5, 0, 1   
+                font_size: self.height * 0.5
+                size_hint: (0.4, 1)    
+                size_hint_x: 0.5
+                pos_hint: {'center_x': 0.5}
+                on_press: app.processLogIn(username.text, password.text)
+            Widget:    
+                size_hint_x: 0.5
+
+        Label:
+            padding: [50, 0, 0, 0]
+            text: "To purchase an account, please visit www.TRMVO.co.nz or email Tom at Support@TRMVO.co.nz \nTo see a preview of what this product has to offer visit www.TRMVO.co.nz"
+            font_size: self.height * 0.1    
+            color: 0.5, 0.5, 0.5, 1    
+            size_hint_y: None    
+            height: root.height * 0.15    
+            text_size: self.width, None    
+
+        Label:
+            id: login_status
+            text: ""
+            color: 1, 0, 0, 1    
+            size_hint_y: None    
+            height: root.height * 0.05    
+
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "TRMVO"
+            font_size: self.height * 0.5    
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.2)
+
+        Label:
+            text: "Main Menu"
+            font_size: self.height * 0.5    
+            color: 0, 0, 0, 1   
+            size_hint: (1, 0.1)
+
+        Button:
+            text: "How to use TRMVO"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5    
+            size_hint: (0.5, 0.1)    
+            pos_hint: {'center_x': 0.5}    
+            border_radius: [15]    
+            on_press: app.switchToHowTo()
+
+        Button:
+            text: "New Rental Model"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5    
+            size_hint: (0.5, 0.1)    
+            pos_hint: {'center_x': 0.5}    
+            border_radius: [15]    
+            on_press: app.switchToRentalModelScreen()
+
+        Button:
+            text: "Assumptions"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToAssumptionsScreen()
+
+        Button:
+            text: "Insights"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToInsightsScreen()
+        
+
+        Button:
+            text: "Mortgage Calculator"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5    
+            size_hint: (0.5, 0.1)    
+            pos_hint: {'center_x': 0.5}    
+            border_radius: [15]    
+            on_press: app.switchToMortgageCalculator()
+
+        Button:
+            text: "Account"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToAccountScreen()
+            
+
+        Button:
+            text: "Exit Program"
+            background_normal: ''
+            background_color: 0, 0, 0, 1   
+            font_size: self.height * 0.5
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.stop()
+
+<InsightsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]  
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.8)    
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)    
+                id: stats_layout
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)    
+                id: graphs_layout
+
+
+
+
+        Button:
+            text: "Back to Main Menu"
+            background_normal: ''
+            background_color: 0, 0, 0, 1   
+            font_size: self.height * 0.5    
+            size_hint: (0.5, 0.1)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToMenuScreen()
+
+<NewRentalModelScreen>:
+    on_pre_enter: root.set_default_values()
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.15)
+            spacing: 5
+
+            Button:
+                background_normal: 'cog.png'
+                size_hint: None, None
+                size: 100, 100
+                on_press: app.switchToAssumptionsScreen()
+
+
+            Label:
+                text: "TRMVO Rental Model"
+                font_size: self.height * 0.8
+                bold: True
+                color: 0, 0.5, 0, 1   
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            size_hint: (1, 0.8)  
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)
+
+                Label:
+                    text: "Drivers"
+                    font_size: self.height * 0.4 
+                    bold: True
+                    color: 0, 0, 0, 1   
+                    size_hint: (1, 0.1)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Property purchase price"
+                        color: 0, 0, 0, 1  
+                        font_size: self.height * 0.3 
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: property_price
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Downpayment (Equity)"
+                        color: 0, 0, 0, 1  
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: downpayment
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Expected Rent (Weekly)"
+                        color: 0, 0, 0, 1 
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: expected_rent
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Mortgage Cost (Yearly)"
+                        color: 0, 0, 0, 1  
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: mortgage_cost
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Total interest of mortgage"
+                        color: 0, 0, 0, 1   
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: total_interest
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Location"
+                        color: 0, 0, 0, 1   
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    Spinner:
+                        id: location
+                        text: "Select location"
+                        values: ["Auckland", "Christchurch"]
+                        size_hint: (0.5, .8)
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)
+                spacing: 50
+                Label:
+                    text: ""
+                    id: resultsLabel
+                    font_size: self.height * 1
+                    bold: True
+                    color: 0, 0, 0, 1   
+                    size_hint: (1, 0.3)
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: results_box
+                    spacing: 70
+                    size_hint: (1, 0.4)
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint: (1, 0.28)
+                        Label:
+                            text: ""
+                            id: summaryResults
+                            color: 0, 0, 0, 1  
+                            font_size: self.height * 0.8
+                            size_hint: (0.3, 0.5)
+                            text_size: self.width, None    
+                            valign: 'middle'    
+                Widget:    
+                    size_hint_x: 0.005
+
+                    
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: (1, .8)
+                    spacing: 50
+                    id: mainResultsBox
+            
+                Widget:    
+                    size_hint_x: 0.4
+
+
+                                    
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            size_hint: (1, 0.3) 
+            Label:
+                id: download_message
+                text: ""
+                color: 1, 0, 0, 1    
+                size_hint: (1, 0.1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint: (1, 0.5) 
+
+                Button:
+                    text: "Calculate Mortgage"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (1, 0.4)
+                    pos_hint: {'center_x': 0.5}
+                    border_radius: [15]
+                    on_press: app.switchToMortgageCalculator()
+
+                Button:
+                    text: "Generate Report"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (1, 0.4)
+                    pos_hint: {'center_x': 0.5}
+                    border_radius: [15]
+                    on_press: app.generateReport(float(property_price.text), float(downpayment.text), float(expected_rent.text), float(mortgage_cost.text), float(total_interest.text), location.text)
+
+
+                Button:
+                    text: "How To Use TRMVO"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (1, 0.4)
+                    pos_hint: {'center_x': 0.5}
+                    border_radius: [15]
+                    on_press: app.switchToHowTo()
+
+            Button:
+                text: "Back to Main Menu"
+                background_normal: ''
+                background_color: 0, 0, 0, 1   
+                font_size: self.height * 0.5 
+                size_hint: (0.5, 0.1)
+                pos_hint: {'center_x': 0.5}
+                border_radius: [15]
+                on_press: app.switchToMenuScreen()
+
+<DisplayFullModelScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 10, 20, 10]  
+        spacing: 10
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Summary of results"
+            font_size: self.height * 1
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+        Button:
+            text: "Back to Rental Model"
+            background_normal: ''
+            background_color: 0, 0, 0, 1   
+            font_size: self.height * 0.5 
+            size_hint: (0.2, 0.05)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToRentalModelScreen()
+        Widget:    
+            size_hint_x: 0.005
+
+
+        ScrollView:
+            size_hint: (1, 0.9)
+            GridLayout:
+                cols: 11
+                padding: [500, 0, 0, 0]
+                spacing: 10
+                size_hint_y: 500
+                height: self.minimum_height
+                id: account_grid
+
+<DisplaySummaryScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 10, 20, 10]  
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Summary of results"
+            font_size: self.height * 1
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+        Button:
+            text: "Back to Rental Model"
+            background_normal: ''
+            background_color: 0, 0, 0, 1   
+            font_size: self.height * 0.5 
+            size_hint: (0.2, 0.05)
+            pos_hint: {'center_x': 0.5}
+            border_radius: [15]
+            on_press: app.switchToRentalModelScreen()
+        Widget:    
+            size_hint_x: 0.005
+
+
+        ScrollView:
+            size_hint: (1, 0.9)
+            GridLayout:
+                cols: 11
+                padding: [500, 0, 0, 0]
+                spacing: 10
+                size_hint_y: 500
+                height: self.minimum_height
+                id: account_grid
+
+<AccountScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Account Details"
+            font_size: self.height * 0.8
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            size_hint: (1, 0.3)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Username:"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                Label:
+                    id: nameDB
+                    text: "tom"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.7, 1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Email:"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                Label:
+                    id: emailDB
+                    text: "t@t.com"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.7, 1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Password:"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                Label:
+                    id: passwordDB
+                    text: "1234"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.7, 1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Plan:"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                Label:
+                    id: planDB
+                    text: "$10/month"
+                    font_size: self.height * 0.5
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.7, 1)
+
+        Label:
+            text: "Update Information"
+            font_size: self.height * 0.7
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            size_hint: (1, 0.4)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "New Username"
+                    font_size: self.height * 0.4
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                TextInput:
+                    id: new_username
+                    multiline: False
+                    size_hint: (0.5, .8)
+                Button:
+                    text: "Submit"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: 
+                        app.updateUsername(new_username.text)
+                        new_username.text = ''
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "New Password"
+                    font_size: self.height * 0.4
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                TextInput:
+                    id: new_password
+                    multiline: False
+                    password: True
+                    size_hint: (0.5, .8)
+                Button:
+                    text: "Submit"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: 
+                        app.updatePassword(new_password.text)
+                        new_password.text = ''
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "New Email"
+                    font_size: self.height * 0.4
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.3, 1)
+                TextInput:
+                    id: new_email
+                    multiline: False
+                    size_hint: (0.5, .8)
+                Button:
+                    text: "Submit"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: 
+                        app.updateEmail(new_email.text)
+                        new_email.text = ''
+
+            Label:
+                padding: [50, 0, 0, 0]
+                text: "To change account plan, cancel plan or deal with any other issues please email Support@TRMVO.co.nz which is checked daily \n Exiting the program will log you out"
+                font_size: self.height * 0.1    
+                color: 0.5, 0.5, 0.5, 1    
+                size_hint_y: None    
+                height: root.height * 0.15    
+                text_size: self.width, None    
+            Label:
+                id: update_account_message
+                text: ""
+                color: 1, 0, 0, 1    
+                size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint: (1, 0.1)
+
+            Button:
+                text: "Back to Main Menu"
+                background_normal: ''
+                background_color: 0, 0, 0, 1   
+                font_size: self.height * 0.5
+                size_hint: (0.5, 0.1)
+                pos_hint: {'center_x': 0.5}
+                border_radius: [15]
+                on_press: app.switchToMenuScreen()
+
+<MortgageCalculator>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Mortgage Calculator"
+            font_size: self.height * 0.8
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            size_hint: (1, 0.8)
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)
+
+                Label:
+                    text: "Input Parameters"
+                    font_size: self.height * 0.4
+                    bold: True
+                    color: 0, 0, 0, 1   
+                    size_hint: (1, 0.1)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "House Price"
+                        color: 0, 0, 0, 1
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: house_price
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Deposit"
+                        color: 0, 0, 0, 1
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: deposit
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Loan Term (Years)"
+                        color: 0, 0, 0, 1
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: loan_term_years
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Loan Term (Months)"
+                        color: 0, 0, 0, 1
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: loan_term_months
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    size_hint: (1, 0.1)
+                    Label:
+                        text: "Interest Rate (%)"
+                        color: 0, 0, 0, 1   
+                        font_size: self.height * 0.3
+                        size_hint: (0.5, 1)
+                    TextInput:
+                        id: interest_rate
+                        multiline: False
+                        size_hint: (0.5, .8)
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.5, 1)
+
+                Label:
+                    text: "Results"
+                    font_size: self.height * 1
+                    bold: True
+                    color: 0, 0, 0, 1   
+                    size_hint: (1, 0.1)
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: results_box
+                    spacing: 10
+                    size_hint: (1, 0.9)
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint: (1, 0.1)
+                        Label:
+                            text: ""
+                            id: results_text
+                            font_size: self.height * 0.2
+                            bold: True
+                            color: 0, 0.5, 0, 1   
+                            size_hint: (0.2, 0.5)
+                Widget:    
+                    size_hint_x: 0.7
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint: (1, 0.2)    
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint: (1, 1)
+                Button:
+                    text: "Calculate Payments and details"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.5, 1)    
+                    pos_hint: {'center_x': 0.5}
+                    border_radius: [15]
+                    on_press: app.mortgageCalculator(int(house_price.text), int(deposit.text), int(loan_term_years.text), int(loan_term_months.text), float(interest_rate.text))
+                Button:
+                    text: "Go to Rental Model"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.5, 1)    
+                    pos_hint: {'center_x': 0.5}
+                    border_radius: [15]
+                    on_press: app.switchToRentalModelScreen()
+
+            Button:
+                text: "Back to Main Menu"
+                background_normal: ''
+                background_color: 0, 0, 0, 1   
+                font_size: self.height * 0.5
+                size_hint: (1, 1)    
+                pos_hint: {'center_x': 0.5}
+                border_radius: [15]
+                on_press: app.switchToMenuScreen()
+
+<HowToScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "How to use TRMVO"
+            font_size: self.height * 0.4    
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.2)
+
+        Label:
+            text: "TRMVO is a tool aimed at rental property investors in New Zealand with the goal of making basic financial analysis of properties accessible to everyone at a reasonable cost,\nThis tool is intended to be used on rental homes, not apartments or commercial property or other types of rental property, it is also expected that you will take a mortgage as leveraging debt is usually the best way to maximise returns in property.\nThe final important assumption is that you intend to sell the home after the return on asset percentage drops far enough (and potentially start again!), this means you probably won’t end up keeping the home for the full mortgage term.\nThe first step in using TRMVO is the mortgage calculator, where you should fill out basic inputs, (Check out the insights screen for interest rates advice), submitting these will give you a basic understanding of the cash flow that is required to cover the mortgage payments.\nStep two is to head to the rental model screen and you should find that the figures calculated in the mortgage calculator have already been filled out, the only thing left to do is fill out the last few inputs and press generate!\nThis will generate a quick and easy model and some very quick insights, you can render the full model on the app or download to excel and take it to show a bank as your business model. \n It is intended to be used accounting for time value of money as a go/ no go decision, however for simplicity this has been disabled, it can be turned on in the assumptions screen"
+            font_size: self.height * 0.05    
+            color: 0, 0, 0, 1   
+            size_hint: (1, 0.6)    
+            text_size: self.width, None    
+            halign: 'left'    
+            valign: 'middle'    
+
+        Button:
+            text: "Continue"
+            background_normal: ''
+            background_color: 0, 0.5, 0, 1   
+            font_size: self.height * 0.5    
+            size_hint: (0.5, 0.1)    
+            pos_hint: {'center_x': 0.5}    
+            border_radius: [15]    
+            on_press: app.switchToMenuScreen()
+
+<AssumptionsScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Update Assumptions"
+            font_size: self.height * 0.6
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            size_hint: (1, 0.3)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Will you hire a property manager?"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "Yes"
+                    id: propertyManagerText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                Spinner:
+                    id: propertyManager
+                    text: "Yes/No"
+                    values: ["Yes", "No"]
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateManagementFeeAssumption(propertyManager.text)
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Do you have a guarenteed tenant :"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: guarenteedTenantText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                Spinner:
+                    id: guarenteedTenant
+                    text: "Yes/No"
+                    values: ["Yes", "No"]
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: 
+                        app.updateguaranteedTenantAssumption(guarenteedTenant.text)
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Do you want to take time value of money into account? :"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: TVMText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                Spinner:
+                    id: TVM
+                    text: "Yes/No"
+                    values: ["Yes", "No"]
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: 
+                        app.updatetimeValueOfMoneyAssumption(TVM.text)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                id: box
+                size_hint: (1, 0.2)
+                Label:
+                    text: ""
+                    id: bce
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: ""
+                    id: abc
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+            Label:
+                id: cost_of_captial_message
+                text: ""
+                color: 1, 0, 0, 1    
+                size_hint: (1, 0.1)
+
+            Label:
+                text: "Update Location Assumptions"
+                font_size: self.height * 0.3
+                bold: True
+                color: 0, 0.5, 0, 1   
+                size_hint: (1, 0.4)
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                size_hint: (1, 0.3)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 5
+                    size_hint: (1, 0.2)
+                    Spinner:
+                        id: location
+                        text: "Select location"
+                        values: ["Auckland", "Christchurch"]
+                        size_hint: (0.5, .8)
+                    Button:
+                        text: "Update Location Assumptions"
+                        background_normal: ''
+                        background_color: 0, 0.5, 0, 1   
+                        font_size: self.height * 0.4
+                        size_hint: (0.2, .8)
+                        on_press: 
+                            app.switchToUpdateLocationAssumptions(location.text)
+
+            Label:
+                id: update_account_message
+                text: ""
+                color: 1, 0, 0, 1    
+                size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint: (1, 0.05)
+
+            Button:
+                text: "Back to Main Menu"
+                background_normal: ''
+                background_color: 0, 0, 0, 1   
+                font_size: self.height * 0.5
+                size_hint: (0.5, 0.1)
+                pos_hint: {'center_x': 0.5}
+                border_radius: [15]
+                on_press: app.switchToMenuScreen()
+
+<LocationsAssumptionsScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: [50, 50, 50, 50]
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1   
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Update Assumptions for -city-"
+            id: cityName
+            font_size: self.height * 0.7
+            bold: True
+            color: 0, 0.5, 0, 1   
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            size_hint: (1, 0.4)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Average Rental Price Growth Rate:"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "Yes"
+                    id: averageRentalGrowthRateText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: averageRentalGrowthRate
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.averageRentalGrowthRate.text, 'averageRentalGrowthRate')
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Average Asset Price Increase Rate:"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: assetPriceIncreaseText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: assetPriceIncrease
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.assetPriceIncrease.text, 'assetPriceIncrease')
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Occupancy likelihood:"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: occupancyRiskText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: occupancyRisk
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.occupancyRisk.text, 'occupancyRisk')
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Average Inflation Level:"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "Yes"
+                    id: averageInflationLevelText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: averageInflationLevel
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.averageInflationLevel.text, 'averageInflationLevel')
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Average Property Taxes Percentage:"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: propertyTaxesText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: propertyTaxes
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1   
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.propertyTaxes.text, 'propertyTaxes')
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Management Fee"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: managementFeeText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1 
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: managementFee
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1 
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.managementFee.text, 'managementFee')
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 5
+                size_hint: (1, 0.2)
+                Label:
+                    text: "Average Maintenance Costs"
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.4, 1)
+                Label:
+                    text: "No"
+                    id: averageMaintenanceCostsText
+                    font_size: self.height * 0.3
+                    color: 0, 0, 0, 1   
+                    size_hint: (0.1, 1)
+                TextInput:
+                    id: averageMaintenanceCosts
+                    multiline: False
+                    size_hint: (0.2, .8)
+                Button:
+                    text: "Update"
+                    background_normal: ''
+                    background_color: 0, 0.5, 0, 1 
+                    font_size: self.height * 0.4
+                    size_hint: (0.2, .8)
+                    on_press: app.updateLocationSpecifics(root.ids.averageMaintenanceCosts.text, 'averageMaintenanceCosts')
+
+
+
+            Label:
+                id: update_location_message
+                text: ""
+                color: 1, 0, 0, 1  
+                size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint: (1, 0.05)
+
+            Button:
+                text: "Back to Assumptions"
+                background_normal: ''
+                background_color: 0, 0, 0, 1 
+                font_size: self.height * 0.5
+                size_hint: (0.5, 0.1)
+                pos_hint: {'center_x': 0.5}
+                border_radius: [15]
+                on_press: app.switchToAssumptionsScreen()
