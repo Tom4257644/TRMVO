@@ -35,4 +35,5 @@ I have attached a video in the files alongside the code that shows a demonstrati
 <img src="https://imgur.com/SWck8x9.png" height="40%" width="40%" alt="Gameplay"/>
 
 <br />
-[Back to projects](https://github.com/Tom4257644/Tom4257644.github.io/blob/main/README.md)
+
+- [Back to projects](https://github.com/Tom4257644/Tom4257644.github.io/blob/main/README.md)
